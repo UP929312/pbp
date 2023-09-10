@@ -1,0 +1,8 @@
+[flake8]
+# other options
+
+[flake8:local-plugins]
+extension:
+    PBP1 = flake8_pbp:ProduceBetterPythonPlugin
+paths = 
+    ./
