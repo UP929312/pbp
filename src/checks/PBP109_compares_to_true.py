@@ -1,6 +1,6 @@
 import ast
 
-from flake_8_ast_error import PREFIX, Flake8ASTErrorInfo, IS
+from src.checks.flake_8_ast_error import PREFIX, Flake8ASTErrorInfo, IS
 
 
 class ComparedToTrueNotAllowed:
