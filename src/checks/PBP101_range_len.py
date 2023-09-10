@@ -1,6 +1,6 @@
 import ast
 
-from src.checks.flake_8_ast_error import PREFIX, Flake8ASTErrorInfo
+from src.flake_8_ast_error import PREFIX, Flake8ASTErrorInfo
 
 
 class RangeLenNotAllowed:

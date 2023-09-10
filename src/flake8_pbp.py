@@ -3,7 +3,7 @@ import ast
 from typing import Any, Iterator, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.checks.flake_8_ast_error import Flake8ASTErrorInfo
+    from src.flake_8_ast_error import Flake8ASTErrorInfo
 
 # fmt: off
 from checks import (

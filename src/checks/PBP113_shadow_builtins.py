@@ -1,7 +1,7 @@
 import ast
 import builtins
 
-from src.checks.flake_8_ast_error import PREFIX, Flake8ASTErrorInfo
+from src.flake_8_ast_error import PREFIX, Flake8ASTErrorInfo
 
 key_words = [x for x in dir(builtins) if not x.startswith("_")]
 
