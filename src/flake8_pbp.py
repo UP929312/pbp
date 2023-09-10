@@ -3,7 +3,7 @@ import ast
 from typing import Any, Iterator, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.flake_8_ast_error import Flake8ASTErrorInfo
+    from src.flake8_ast_error import Flake8ASTErrorInfo
 
 # fmt: off
 from checks import (
@@ -26,7 +26,6 @@ class ProduceBetterPythonPlugin:
         self._tree = tree
 
     def run(self) -> Iterator[Flake8ASTErrorInfo]:
-        # print("Running plugin")
         visitor = Visitor()
         visitor.visit(self._tree)
         yield from visitor.errors
