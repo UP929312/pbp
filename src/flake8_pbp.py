@@ -1,12 +1,10 @@
-from _ast import FunctionDef, IfExp
 import ast
-from typing import Any, Iterator, TYPE_CHECKING
+from typing import Any, Iterator
 
-if TYPE_CHECKING:
-    from src.flake8_ast_error import Flake8ASTErrorInfo
+from src.flake8_ast_error import Flake8ASTErrorInfo
 
 # fmt: off
-from checks import (
+from src.checks import (
     RangeLenNotAllowed, JsonLoadsNotAllowed, OpenNoWithNotAllowed, RequestsJsonDumpsNotAllowed, AssignToListNotAllowed,  # For
     CamelCaseFuncNotAllowed, DefaultMutableArgsNotAllowed, UsingFilterNotAllowed,  AnyWithCompNotAllowed,  # Call
     CompareTypesNotAllowed,  # Compare
@@ -48,7 +46,7 @@ class Visitor(ast.NodeVisitor):
         AnyWithCompNotAllowed.check(node, self.errors)
         self.generic_visit(node)
 
-    def visit_FunctionDef(self, node: FunctionDef) -> Any:
+    def visit_FunctionDef(self, node: ast.FunctionDef) -> Any:
         CamelCaseFuncNotAllowed.check(node, self.errors)
         DefaultMutableArgsNotAllowed.check(node, self.errors)
         self.generic_visit(node)
@@ -70,6 +68,6 @@ class Visitor(ast.NodeVisitor):
         ShadowBuiltinsNotAllowed.check(node, self.errors)
         self.generic_visit(node)
 
-    def visit_IfExp(self, node: IfExp) -> None:
+    def visit_IfExp(self, node: ast.IfExp) -> None:
         NotPointlessTernaryNotAllowed.check(node, self.errors)
         self.generic_visit(node)
