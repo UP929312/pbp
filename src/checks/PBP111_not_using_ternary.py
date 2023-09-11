@@ -36,6 +36,8 @@ class NotUsingTernaryNotAllowed:
             return
         # =========================================================
         # We now have 2 variables, one for the if, one for the else
+        if not (isinstance(variable_if.targets[0], ast.Name) and isinstance(variable_else.targets[0], ast.Name)):
+            return
         if variable_if.targets[0].id != variable_else.targets[0].id:
             return
 

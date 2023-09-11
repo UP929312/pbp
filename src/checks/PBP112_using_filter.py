@@ -22,6 +22,7 @@ class UsingFilterNotAllowed:
         if (
             isinstance(node.func, ast.Name)
             and node.func.id == "list"
+            and node.args
             and isinstance(node.args[0], ast.Call)
             and isinstance(node.args[0].func, ast.Name)
             and node.args[0].func.id in ["filter", "map"]

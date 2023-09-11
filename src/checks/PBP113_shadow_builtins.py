@@ -23,6 +23,7 @@ class ShadowBuiltinsNotAllowed:
     @classmethod
     def check(cls, node: ast.Assign, errors: list[Flake8ASTErrorInfo]) -> None:
         if (
+            node.targets and
             isinstance(node.targets[0], ast.Name) and
             node.targets[0].id in key_words  # fmt: skip
         ):

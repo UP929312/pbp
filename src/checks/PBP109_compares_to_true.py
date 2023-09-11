@@ -22,7 +22,7 @@ class ComparedToTrueNotAllowed:
         if (
             isinstance(node.test, ast.Compare) and
             isinstance(node.test.ops[0], IS) and
-            isinstance(node.test.comparators[0], ast.Name) and
+            isinstance(node.test.comparators[0], ast.Constant) and
             node.test.comparators[0].value is True  # fmt: skip
         ):
             errors.append(Flake8ASTErrorInfo(node.lineno, node.col_offset, cls.msg, type(cls)))
