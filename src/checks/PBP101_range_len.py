@@ -21,6 +21,37 @@ class RangeLenNotAllowed:
     def check(cls, node: ast.For, errors: list[Flake8ASTErrorInfo]) -> None:
         if (
             node.iter.func.id == "range" and
+            isinstance(node.iter.args[0], ast.Call) and
+            isinstance(node.iter.args[0].func, ast.Name) and
             node.iter.args[0].func.id == "len"  # fmt: skip
         ):
             errors.append(Flake8ASTErrorInfo(node.lineno, node.col_offset, cls.msg, type(cls)))
+
+"""
+For(
+    target=Name(id='i', ctx=Store()),
+    iter=Call(
+        func=Name(id='range', ctx=Load()),
+        args=[
+            Call(
+                func=Name(id='len', ctx=Load()),
+                args=[
+                    Name(id='my_list', ctx=Load())],
+                keywords=[])],
+        keywords=[]),
+    body=[
+        Expr(
+        value=Call(
+            func=Name(id='print', ctx=Load()),
+            args=[
+                Subscript(
+                    value=Name(id='my_list', ctx=Load()),
+                    slice=Name(id='i', ctx=Load()),
+                    ctx=Load()),
+                Subscript(
+                    value=Name(id='my_second_list', ctx=Load()),
+                    slice=Name(id='i', ctx=Load()),
+                    ctx=Load())],
+            keywords=[]))],
+    orelse=[])],
+"""
