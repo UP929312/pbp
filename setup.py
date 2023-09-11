@@ -4,7 +4,7 @@ setup(
     install_requires=["flake8 > 3.0.0"],
     name="flake8_pgp",
     license="MIT",
-    version="1.1.10",
+    version="1.1.11",
     description="flake8 plugin which checks for various bad python practises",
     long_description="flake8 plugin which checks for various bad python practises",
     url="https://github.com/UP929312/pbp",

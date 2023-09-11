@@ -20,6 +20,7 @@ class RangeLenNotAllowed:
     @classmethod
     def check(cls, node: ast.For, errors: list[Flake8ASTErrorInfo]) -> None:
         if (
+            isinstance(node.iter.func, ast.Name) and
             node.iter.func.id == "range" and
             isinstance(node.iter.args[0], ast.Call) and
             isinstance(node.iter.args[0].func, ast.Name) and
