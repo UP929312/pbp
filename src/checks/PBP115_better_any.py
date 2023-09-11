@@ -20,7 +20,7 @@ class AnyWithCompNotAllowed:
     @classmethod
     def check(cls, node: ast.Call, errors: list[Flake8ASTErrorInfo]) -> None:
         if not (
-            isinstance(node.func, ast.Name) or
+            isinstance(node.func, ast.Name) and
             node.func.id not in {"all", "any"} or
             len(node.args) != 1  # fmt: skip
         ):
