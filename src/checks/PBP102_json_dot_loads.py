@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring, missing-function-docstring, line-too-long, too-few-public-methods, invalid-name, pointless-string-statement
 import ast
 
 from src.flake8_ast_error import PREFIX, Flake8ASTErrorInfo
@@ -18,6 +19,7 @@ class JsonLoadsNotAllowed:
 
     @classmethod
     def check(cls, node: ast.Call, errors: list[Flake8ASTErrorInfo]) -> None:
+        # pylint: disable=too-many-boolean-expressions
         if (
             isinstance(node.func, ast.Attribute)
             and isinstance(node.func.value, ast.Name)

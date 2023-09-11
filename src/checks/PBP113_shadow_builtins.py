@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring, missing-function-docstring, line-too-long, too-few-public-methods, invalid-name, pointless-string-statement
 import ast
 import builtins
 
@@ -21,7 +22,10 @@ class ShadowBuiltinsNotAllowed:
 
     @classmethod
     def check(cls, node: ast.Assign, errors: list[Flake8ASTErrorInfo]) -> None:
-        if isinstance(node.targets[0], ast.Name) and node.targets[0].id in key_words:
+        if (
+            isinstance(node.targets[0], ast.Name) and
+            node.targets[0].id in key_words  # fmt: skip
+        ):
             name_used = node.targets[0].id
             errors.append(Flake8ASTErrorInfo(node.lineno, node.col_offset, cls.msg.format(name_used), type(cls)))
 

@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring
 from src.checks.PBP101_range_len import RangeLenNotAllowed
 from src.checks.PBP102_json_dot_loads import JsonLoadsNotAllowed
 from src.checks.PBP103_open_no_with import OpenNoWithNotAllowed

@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring, missing-function-docstring, line-too-long, too-few-public-methods, invalid-name, pointless-string-statement
 import ast
 
 from src.flake8_ast_error import PREFIX, Flake8ASTErrorInfo
@@ -19,6 +20,7 @@ class AssignToListNotAllowed:
         if (
             isinstance(node.func, ast.Name) and
             node.func.id == "list" and
-            not node.args and not node.keywords
+            not node.args and
+            not node.keywords  # fmt: skip
         ):
             errors.append(Flake8ASTErrorInfo(node.lineno, node.col_offset, cls.msg, type(cls)))

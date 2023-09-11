@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring, missing-function-docstring, line-too-long, too-few-public-methods, invalid-name, pointless-string-statement
 import ast
 
 from src.flake8_ast_error import PREFIX, Flake8ASTErrorInfo, filter_by
@@ -38,7 +39,10 @@ class NotUsingTernaryNotAllowed:
         if variable_if.targets[0].id != variable_else.targets[0].id:
             return
 
-        if isinstance(variable_if.value, ast.Constant) and isinstance(variable_else.value, ast.Constant):
+        if (
+            isinstance(variable_if.value, ast.Constant) and
+            isinstance(variable_else.value, ast.Constant)  # fmt: skip
+        ):
             errors.append(Flake8ASTErrorInfo(node.lineno, node.col_offset, cls.msg, type(cls)))
 
 

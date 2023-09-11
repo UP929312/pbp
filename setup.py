@@ -13,8 +13,8 @@ setup(
         "Framework :: Flake8",
     ],
     entry_points={
-        'flake8.extension': [
-            'PBP1 = src.flake8_pbp:ProduceBetterPythonPlugin',
+        "flake8.extension": [
+            "PBP1 = src.flake8_pbp:ProduceBetterPythonPlugin",
         ],
     },
 )

@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring, missing-function-docstring, line-too-long, too-few-public-methods, invalid-name, pointless-string-statement
 import ast
 
 from src.flake8_ast_error import PREFIX, Flake8ASTErrorInfo
@@ -18,10 +19,10 @@ class AnyWithCompNotAllowed:
 
     @classmethod
     def check(cls, node: ast.Call, errors: list[Flake8ASTErrorInfo]) -> None:
-        if (
-            not isinstance(node.func, ast.Name) or
+        if not (
+            isinstance(node.func, ast.Name) or
             node.func.id not in {"all", "any"} or
-            len(node.args) != 1
+            len(node.args) != 1  # fmt: skip
         ):
             return
         if isinstance(node.args[0], ast.ListComp):

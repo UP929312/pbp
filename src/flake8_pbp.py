@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring, missing-function-docstring, line-too-long, too-few-public-methods, invalid-name
 import ast
 from typing import Any, Iterator
 
@@ -6,7 +7,7 @@ from src.flake8_ast_error import Flake8ASTErrorInfo
 # fmt: off
 from src.checks import (
     RangeLenNotAllowed, JsonLoadsNotAllowed, OpenNoWithNotAllowed, RequestsJsonDumpsNotAllowed, AssignToListNotAllowed,  # For
-    CamelCaseFuncNotAllowed, DefaultMutableArgsNotAllowed, UsingFilterNotAllowed,  AnyWithCompNotAllowed,  # Call
+    CamelCaseFuncNotAllowed, DefaultMutableArgsNotAllowed, UsingFilterNotAllowed, AnyWithCompNotAllowed,  # Call
     CompareTypesNotAllowed,  # Compare
     ComparedToTrueNotAllowed, NotUsingTernaryNotAllowed,  # If
     InheritsFromObjectNotAllowed,  # ClassDef
@@ -17,6 +18,10 @@ from src.checks import (
 
 
 class ProduceBetterPythonPlugin:
+    """
+    Plugin Class
+    """
+
     name = "produce_better_python"
     version = "0.0.1"
 
@@ -30,6 +35,10 @@ class ProduceBetterPythonPlugin:
 
 
 class Visitor(ast.NodeVisitor):
+    """
+    Main visitor class
+    """
+
     def __init__(self) -> None:
         self.errors: list[Flake8ASTErrorInfo] = []
 

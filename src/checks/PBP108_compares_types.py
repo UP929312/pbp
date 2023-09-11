@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring, missing-function-docstring, line-too-long, too-few-public-methods, invalid-name, pointless-string-statement
 import ast
 
 from src.flake8_ast_error import PREFIX, Flake8ASTErrorInfo
@@ -23,13 +24,13 @@ class CompareTypesNotAllowed:
         left_is_type = (
             isinstance(node.left, ast.Call) and
             isinstance(node.left.func, ast.Name) and
-            node.left.func.id == "type"
+            node.left.func.id == "type"  # fmt: skip
         )
         node.right = node.comparators[0]
         right_is_type = (
             isinstance(node.right, ast.Call) and
             isinstance(node.right.func, ast.Name) and
-            node.right.func.id == "type"
+            node.right.func.id == "type"  # fmt: skip
         )
         # =========================================================
         if left_is_type or right_is_type:

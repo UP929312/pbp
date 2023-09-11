@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring, missing-function-docstring, line-too-long, too-few-public-methods, invalid-name, pointless-string-statement
 import ast
 
 from src.flake8_ast_error import PREFIX, Flake8ASTErrorInfo
@@ -20,7 +21,7 @@ class RequestsJsonDumpsNotAllowed:
         is_requests_call = (
             isinstance(node.func, ast.Attribute) and
             isinstance(node.func.value, ast.Name) and
-            node.func.value.id == "requests"
+            node.func.value.id == "requests"  # fmt: skip
         )
         if not is_requests_call:
             return
@@ -31,7 +32,10 @@ class RequestsJsonDumpsNotAllowed:
             return
         data = data[0]
 
-        if not (isinstance(data.value, ast.Call) and isinstance(data.value.func, ast.Attribute)):
+        if not (
+            isinstance(data.value, ast.Call) and
+            isinstance(data.value.func, ast.Attribute)  # fmt: skip
+        ):
             return
         # ================================================================================
         # From now on, we're only checking for data=<x> calls
@@ -39,7 +43,7 @@ class RequestsJsonDumpsNotAllowed:
         if (
             isinstance(attribute.value, ast.Name) and
             attribute.value.id == "json" and
-            attribute.attr == "dumps"
+            attribute.attr == "dumps"  # fmt: skip
         ):
             errors.append(Flake8ASTErrorInfo(node.lineno, node.col_offset, cls.msg, type(cls)))
 
