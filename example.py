@@ -15,12 +15,12 @@
 # data = json.loads(response.text)
 
 
-class my_class:
-    pass
+# class my_class:
+#     pass
 
 
-class MyClass:
-    pass
+# class MyClass:
+#     pass
 
 
 # x = True
@@ -52,8 +52,8 @@ class MyClass:
 #     pass
 
 
-# def CamelCase():
-#     pass
+def CamelCase():
+    pass
 
 
 # good = []

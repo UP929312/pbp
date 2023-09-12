@@ -17,7 +17,7 @@ class NonPascalCaseClassNotAllowed:
 
     msg = PREFIX + "16: Class names should be in PascalCase, (found: {}, should be: {})"
 
-    def convert_to_pascal_case(self, name):
+    def convert_to_pascal_case(name) -> str:
         return "".join(word.title() for word in name.split("_"))
 
     @classmethod
