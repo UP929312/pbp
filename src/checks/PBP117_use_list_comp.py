@@ -23,22 +23,21 @@ class NonUsingListCompNotAllowed:
             if i == len(node.body) - 1:
                 break
             next_statement = node.body[i + 1]
-            # Generate the required AST conditions to disallow looping and appending where list comp would work instead
             if (
                 # Check if they're assigning to a list
-                isinstance(statement, ast.Assign) and
-                isinstance(statement.value, ast.List) and
-                           statement.targets and
-                isinstance(statement.targets[0], ast.Name) and
+                isinstance(statement, ast.Assign)
+                and isinstance(statement.value, ast.List)
+                and statement.targets
+                and isinstance(statement.targets[0], ast.Name)
                 # =========================================================
                 # Check if the next statement is a for loop
-                isinstance(next_statement, ast.For) and
-                isinstance(next_statement.body[0], ast.Expr) and
-                isinstance(next_statement.body[0].value, ast.Call) and
-                isinstance(next_statement.body[0].value.func, ast.Attribute) and
-                           next_statement.body[0].value.func.attr == "append" and
-                isinstance(next_statement.body[0].value.func.value, ast.Name) and
-                           next_statement.body[0].value.func.value.id == statement.targets[0].id
+                and isinstance(next_statement, ast.For)
+                and isinstance(next_statement.body[0], ast.Expr)
+                and isinstance(next_statement.body[0].value, ast.Call)
+                and isinstance(next_statement.body[0].value.func, ast.Attribute)
+                and next_statement.body[0].value.func.attr == "append"
+                and isinstance(next_statement.body[0].value.func.value, ast.Name)
+                and next_statement.body[0].value.func.value.id == statement.targets[0].id
             ):
                 errors.append(Flake8ASTErrorInfo(statement.lineno, statement.col_offset, cls.msg, type(cls)))
 

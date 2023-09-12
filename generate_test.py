@@ -6,8 +6,8 @@ final_string = "\n".join(
         "",
         "condition = True",
         "my_list = [1, 2, 3]",
-        "my_map = {1: 'a', 2: 'b'}",
-        "my_sub_list = [4, 5, 6]"
+        'my_map = {1: "a", 2: "b"}',
+        "my_sub_list = [4, 5, 6]",
         "",
         "",
     ]
@@ -15,7 +15,7 @@ final_string = "\n".join(
 
 for check in all_checks:
     docs: str = check.__doc__.replace("\n    ", "\n")
-    final_string += f"#========== {check.__name__}\n{docs}\n"
+    final_string += f"# ========== {check.__name__}\n{docs}\n"
 
 with open("src/tests/main_test.py", "w") as file:
     file.write(final_string)

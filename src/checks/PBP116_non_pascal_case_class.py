@@ -22,7 +22,7 @@ class NonPascalCaseClassNotAllowed:
 
     @classmethod
     def check(cls, node: ast.ClassDef, errors: list[Flake8ASTErrorInfo]) -> None:
-        if node.name.islower() or "_" in node.name :
+        if node.name.islower() or "_" in node.name:
             found = node.name
             expected = cls.convert_to_pascal_case(node.name)
             msg = cls.msg.format(found, expected)

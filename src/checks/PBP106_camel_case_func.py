@@ -22,5 +22,5 @@ class CamelCaseFuncNotAllowed:
     def check(cls, node: ast.For, errors: list[Flake8ASTErrorInfo]) -> None:
         if not node.name.islower():
             found = node.name
-            expected = re.sub(r'(?<!^)(?=[A-Z])', '_', node.name).lower()
+            expected = re.sub(r"(?<!^)(?=[A-Z])", "_", node.name).lower()
             errors.append(Flake8ASTErrorInfo(node.lineno, node.col_offset, cls.msg.format(found, expected), type(cls)))
