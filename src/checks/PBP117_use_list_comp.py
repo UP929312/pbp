@@ -28,7 +28,7 @@ class NonUsingListCompNotAllowed:
                 # Check if they're assigning to a list
                 isinstance(statement, ast.Assign) and
                 isinstance(statement.value, ast.List) and
-                statement.targets and
+                           statement.targets and
                 isinstance(statement.targets[0], ast.Name) and
                 # =========================================================
                 # Check if the next statement is a for loop
@@ -36,11 +36,11 @@ class NonUsingListCompNotAllowed:
                 isinstance(next_statement.body[0], ast.Expr) and
                 isinstance(next_statement.body[0].value, ast.Call) and
                 isinstance(next_statement.body[0].value.func, ast.Attribute) and
+                           next_statement.body[0].value.func.attr == "append" and
                 isinstance(next_statement.body[0].value.func.value, ast.Name) and
-                next_statement.body[0].value.func.value.attr == "append" and
-                next_statement.body[0].value.func.value.id == statement.targets[0].id
+                           next_statement.body[0].value.func.value.id == statement.targets[0].id
             ):
-                errors.append(Flake8ASTErrorInfo(node.lineno, node.col_offset, cls.msg, type(cls)))
+                errors.append(Flake8ASTErrorInfo(statement.lineno, statement.col_offset, cls.msg, type(cls)))
 
 
 """

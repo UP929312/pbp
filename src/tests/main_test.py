@@ -3,7 +3,7 @@ import requests
 condition = True
 my_list = [1, 2, 3]
 my_map = {1: 'a', 2: 'b'}
-
+my_sub_list = [4, 5, 6]
 #========== RangeLenNotAllowed
 
 # Bad
@@ -164,4 +164,14 @@ class my_class:
 # Good
 class MyClass:
     pass
+
+#========== NonUsingListCompNotAllowed
+
+# Bad
+my_list = []
+for char in my_sub_list:
+    my_list.append(char)
+
+# Good
+my_list = [x for x in my_sub_list]
 

@@ -7,6 +7,7 @@ final_string = "\n".join(
         "condition = True",
         "my_list = [1, 2, 3]",
         "my_map = {1: 'a', 2: 'b'}",
+        "my_sub_list = [4, 5, 6]"
         "",
         "",
     ]
