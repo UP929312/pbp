@@ -1,4 +1,5 @@
 # pylint: disable=missing-module-docstring, missing-function-docstring, line-too-long, too-few-public-methods, invalid-name
+from _ast import Module
 import ast
 from typing import Any, Iterator
 
@@ -13,6 +14,7 @@ from src.checks import (
     InheritsFromObjectNotAllowed, NonPascalCaseClassNotAllowed,  # ClassDef
     ShadowBuiltinsNotAllowed,  # Assign
     NoPointlessTernaryNotAllowed,  # IfExp
+    NonUsingListCompNotAllowed,  # Module
 )
 # fmt: on
 
@@ -80,4 +82,8 @@ class Visitor(ast.NodeVisitor):
 
     def visit_IfExp(self, node: ast.IfExp) -> None:
         NoPointlessTernaryNotAllowed.check(node, self.errors)
+        self.generic_visit(node)
+
+    def visit_Module(self, node: Module) -> Any:
+        NonUsingListCompNotAllowed.check(node, self.errors)
         self.generic_visit(node)
