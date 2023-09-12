@@ -23,7 +23,7 @@ class NotUsingTernaryNotAllowed:
         if not (
             isinstance(node.test, ast.Compare)
             and isinstance(node.test.comparators[0], ast.Constant)  # Check if we're comparing
-            and node.orelse is not None  # Against a constant  # And we have an else
+            and len(node.orelse) > 0 # And the else has at least 1 statement
             and isinstance(node.orelse[0], ast.Assign)  # And we're assigning, not doing another IF check
         ):
             return
