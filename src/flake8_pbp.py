@@ -7,12 +7,12 @@ from src.flake8_ast_error import Flake8ASTErrorInfo
 # fmt: off
 from src.checks import (
     RangeLenNotAllowed, JsonLoadsNotAllowed, OpenNoWithNotAllowed, RequestsJsonDumpsNotAllowed, AssignToListNotAllowed,  # For
-    CamelCaseFuncNotAllowed, DefaultMutableArgsNotAllowed, UsingFilterNotAllowed, AnyWithCompNotAllowed,  # Call
+    CamelCaseFuncNotAllowed, DefaultMutableArgsNotAllowed, UsingFilterOrMapNotAllowed, AnyOrAllWithCompNotAllowed,  # Call
     CompareTypesNotAllowed,  # Compare
     ComparedToTrueNotAllowed, NotUsingTernaryNotAllowed,  # If
     InheritsFromObjectNotAllowed, NonPascalCaseClassNotAllowed,  # ClassDef
     ShadowBuiltinsNotAllowed,  # Assign
-    NotPointlessTernaryNotAllowed,  # IfExp
+    NoPointlessTernaryNotAllowed,  # IfExp
 )
 # fmt: on
 
@@ -51,8 +51,8 @@ class Visitor(ast.NodeVisitor):
         OpenNoWithNotAllowed.check(node, self.errors)
         RequestsJsonDumpsNotAllowed.check(node, self.errors)
         AssignToListNotAllowed.check(node, self.errors)
-        UsingFilterNotAllowed.check(node, self.errors)
-        AnyWithCompNotAllowed.check(node, self.errors)
+        UsingFilterOrMapNotAllowed.check(node, self.errors)
+        AnyOrAllWithCompNotAllowed.check(node, self.errors)
         self.generic_visit(node)
 
     def visit_FunctionDef(self, node: ast.FunctionDef) -> Any:
@@ -79,5 +79,5 @@ class Visitor(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_IfExp(self, node: ast.IfExp) -> None:
-        NotPointlessTernaryNotAllowed.check(node, self.errors)
+        NoPointlessTernaryNotAllowed.check(node, self.errors)
         self.generic_visit(node)

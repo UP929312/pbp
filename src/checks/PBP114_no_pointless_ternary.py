@@ -4,7 +4,7 @@ import ast
 from src.flake8_ast_error import PREFIX, Flake8ASTErrorInfo
 
 
-class NotPointlessTernaryNotAllowed:
+class NoPointlessTernaryNotAllowed:
     """
     # Bad
     x = True if condition else False

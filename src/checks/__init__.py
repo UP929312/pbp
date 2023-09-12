@@ -10,15 +10,15 @@ from src.checks.PBP108_compares_types import CompareTypesNotAllowed
 from src.checks.PBP109_compares_to_true import ComparedToTrueNotAllowed
 from src.checks.PBP110_inherits_from_object import InheritsFromObjectNotAllowed
 from src.checks.PBP111_not_using_ternary import NotUsingTernaryNotAllowed
-from src.checks.PBP112_using_filter import UsingFilterNotAllowed
+from src.checks.PBP112_using_filter import UsingFilterOrMapNotAllowed
 from src.checks.PBP113_shadow_builtins import ShadowBuiltinsNotAllowed
-from src.checks.PBP114_no_pointless_ternary import NotPointlessTernaryNotAllowed
-from src.checks.PBP115_better_any import AnyWithCompNotAllowed
+from src.checks.PBP114_no_pointless_ternary import NoPointlessTernaryNotAllowed
+from src.checks.PBP115_better_any_and_all import AnyOrAllWithCompNotAllowed
 from src.checks.PBP116_non_pascal_case_class import NonPascalCaseClassNotAllowed
 
 all_checks = [
     RangeLenNotAllowed, JsonLoadsNotAllowed, OpenNoWithNotAllowed, RequestsJsonDumpsNotAllowed,
     AssignToListNotAllowed, CamelCaseFuncNotAllowed, DefaultMutableArgsNotAllowed, CompareTypesNotAllowed,
-    ComparedToTrueNotAllowed, InheritsFromObjectNotAllowed, NotUsingTernaryNotAllowed, UsingFilterNotAllowed,
-    ShadowBuiltinsNotAllowed, NotPointlessTernaryNotAllowed, AnyWithCompNotAllowed, NonPascalCaseClassNotAllowed,  # fmt: skip
+    ComparedToTrueNotAllowed, InheritsFromObjectNotAllowed, NotUsingTernaryNotAllowed, UsingFilterOrMapNotAllowed,
+    ShadowBuiltinsNotAllowed, NoPointlessTernaryNotAllowed, AnyOrAllWithCompNotAllowed, NonPascalCaseClassNotAllowed,  # fmt: skip
 ]

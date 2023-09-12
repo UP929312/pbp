@@ -4,7 +4,7 @@ import ast
 from src.flake8_ast_error import PREFIX, Flake8ASTErrorInfo
 
 
-class AnyWithCompNotAllowed:
+class AnyOrAllWithCompNotAllowed:
     """
     # Bad
     any([x.id for x in my_list])
@@ -15,7 +15,7 @@ class AnyWithCompNotAllowed:
     any(x.id for x in my_list)
     """
 
-    msg = PREFIX + "15: Prefer-simple-any-all: remove unnecessary comprehension."
+    msg = PREFIX + "15: Prefer simpler any or all statements: remove unnecessary comprehension"
 
     @classmethod
     def check(cls, node: ast.Call, errors: list[Flake8ASTErrorInfo]) -> None:

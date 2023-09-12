@@ -4,7 +4,7 @@ import ast
 from src.flake8_ast_error import PREFIX, Flake8ASTErrorInfo
 
 
-class UsingFilterNotAllowed:
+class UsingFilterOrMapNotAllowed:
     """
     # Bad
     list(filter(lambda x: x > 5, range(10)))

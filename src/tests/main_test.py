@@ -117,7 +117,7 @@ else:
 # Good
 a = "Value1" if x == 1 else "Value2"
 
-#========== UsingFilterNotAllowed
+#========== UsingFilterOrMapNotAllowed
 
 # Bad
 list(filter(lambda x: x > 5, range(10)))
@@ -130,14 +130,14 @@ list(map(lambda x: x**2, range(10)))
 #========== ShadowBuiltinsNotAllowed
 
 # Bad
-map = my_map
-list = my_list
+map = ...
+list = ...
 
 # Good
-my_map = my_map
-my_list = my_list
+my_map = ...
+my_list = ...
 
-#========== NotPointlessTernaryNotAllowed
+#========== NoPointlessTernaryNotAllowed
 
 # Bad
 x = True if condition else False
@@ -145,7 +145,7 @@ x = True if condition else False
 # Good
 x = bool(condition)
 
-#========== AnyWithCompNotAllowed
+#========== AnyOrAllWithCompNotAllowed
 
 # Bad
 any([x.id for x in my_list])

@@ -10,12 +10,12 @@ key_words = [x for x in dir(builtins) if not x.startswith("_")]
 class ShadowBuiltinsNotAllowed:
     """
     # Bad
-    map = my_map
-    list = my_list
+    map = ...
+    list = ...
 
     # Good
-    my_map = my_map
-    my_list = my_list
+    my_map = ...
+    my_list = ...
     """
 
     msg = PREFIX + "13: Don't override builtins, use a different name instead (used: `{}`))"
