@@ -14,10 +14,19 @@
 # response = requests.get("abc")
 # data = json.loads(response.text)
 
+
+class my_class:
+    pass
+
+
+class MyClass:
+    pass
+
+
 # x = True
 
-if x is True:
-    pass
+# if x is True:
+#     pass
 
 # with open("file_name.json", "r") as file:
 #     data = file.read()

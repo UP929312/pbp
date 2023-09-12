@@ -14,3 +14,4 @@ from src.checks.PBP112_using_filter import UsingFilterNotAllowed
 from src.checks.PBP113_shadow_builtins import ShadowBuiltinsNotAllowed
 from src.checks.PBP114_no_pointless_ternary import NotPointlessTernaryNotAllowed
 from src.checks.PBP115_better_any import AnyWithCompNotAllowed
+from src.checks.PBP116_non_pascal_case_class import NonPascalCaseClassNotAllowed

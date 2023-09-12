@@ -10,7 +10,7 @@ from src.checks import (
     CamelCaseFuncNotAllowed, DefaultMutableArgsNotAllowed, UsingFilterNotAllowed, AnyWithCompNotAllowed,  # Call
     CompareTypesNotAllowed,  # Compare
     ComparedToTrueNotAllowed, NotUsingTernaryNotAllowed,  # If
-    InheritsFromObjectNotAllowed,  # ClassDef
+    InheritsFromObjectNotAllowed, NonPascalCaseClassNotAllowed,  # ClassDef
     ShadowBuiltinsNotAllowed,  # Assign
     NotPointlessTernaryNotAllowed,  # IfExp
 )
@@ -62,6 +62,7 @@ class Visitor(ast.NodeVisitor):
 
     def visit_ClassDef(self, node: ast.ClassDef) -> None:
         InheritsFromObjectNotAllowed.check(node, self.errors)
+        NonPascalCaseClassNotAllowed.check(node, self.errors)
         self.generic_visit(node)
 
     def visit_Compare(self, node: ast.Compare) -> None:
