@@ -33,6 +33,11 @@
 
 # data = open("file_name.json", "r").read()
 
+# file = open("file_name.json", "r")
+# data = file.read()
+# file.close()
+
+
 # data = ""
 
 # response = requests.post("abc", data=json.dumps(data))
@@ -52,8 +57,8 @@
 #     pass
 
 
-def CamelCase():
-    pass
+# def CamelCase():
+#     pass
 
 
 # good = []
@@ -80,5 +85,5 @@ def CamelCase():
 # value = 5
 # a = True if value == 5 else False
 
-# a = any([x for x in range(5)])
+a = any([x for x in range(5)])
 # b = any(x for x in range(5))

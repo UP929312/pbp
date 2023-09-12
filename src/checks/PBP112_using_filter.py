@@ -8,7 +8,7 @@ class UsingFilterNotAllowed:
     """
     # Bad
     list(filter(lambda x: x > 5, range(10)))
-    list(map(lambda x: x**2, range(10))
+    list(map(lambda x: x**2, range(10)))
 
     # Good
     [x for x in range(10) if x > 5]

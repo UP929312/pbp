@@ -10,7 +10,7 @@ class NotUsingTernaryNotAllowed:
     if x == 1:
         a = "Value1"
     else:
-        a = "Value2
+        a = "Value2"
 
     # Good
     a = "Value1" if x == 1 else "Value2"

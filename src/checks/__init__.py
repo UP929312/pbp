@@ -15,3 +15,10 @@ from src.checks.PBP113_shadow_builtins import ShadowBuiltinsNotAllowed
 from src.checks.PBP114_no_pointless_ternary import NotPointlessTernaryNotAllowed
 from src.checks.PBP115_better_any import AnyWithCompNotAllowed
 from src.checks.PBP116_non_pascal_case_class import NonPascalCaseClassNotAllowed
+
+all_checks = [
+    RangeLenNotAllowed, JsonLoadsNotAllowed, OpenNoWithNotAllowed, RequestsJsonDumpsNotAllowed,
+    AssignToListNotAllowed, CamelCaseFuncNotAllowed, DefaultMutableArgsNotAllowed, CompareTypesNotAllowed,
+    ComparedToTrueNotAllowed, InheritsFromObjectNotAllowed, NotUsingTernaryNotAllowed, UsingFilterNotAllowed,
+    ShadowBuiltinsNotAllowed, NotPointlessTernaryNotAllowed, AnyWithCompNotAllowed, NonPascalCaseClassNotAllowed,  # fmt: skip
+]
