@@ -21,7 +21,6 @@ for _ in range(len(my_list)):
 
 # Bad
 import json
-
 response = requests.get("https://example.com")
 data = json.loads(response.text)
 
@@ -43,7 +42,6 @@ with open("file.txt") as file:
 
 # Bad
 import json
-
 requests.post(data=json.dumps(data))
 
 # Good
@@ -63,11 +61,9 @@ x = []
 def CamelCaseFunc():
     pass
 
-
 # Good
 def snake_case_func():
     pass
-
 
 # ========== DefaultMutableArgsNotAllowed
 
@@ -75,13 +71,11 @@ def snake_case_func():
 def foo(bar=[]):
     pass
 
-
 # Good
 def foo(bar=None):
     if bar is None:
         bar = []
     pass
-
 
 # ========== CompareTypesNotAllowed
 
@@ -111,11 +105,9 @@ if x:
 class Foo(object):
     pass
 
-
 # Good
 class Foo:
     pass
-
 
 # ========== NotUsingTernaryNotAllowed
 
@@ -172,11 +164,9 @@ any(x.id for x in my_list)
 class my_class:
     pass
 
-
 # Good
 class MyClass:
     pass
-
 
 # ========== NonUsingListCompNotAllowed
 
@@ -187,3 +177,4 @@ for char in my_sub_list:
 
 # Good
 my_list = [x for x in my_sub_list]
+

@@ -20,4 +20,4 @@ for check in all_checks:
 with open("src/tests/main_test.py", "w") as file:
     file.write(final_string)
 
-print(r"flake8 --ignore=R,E,W,F .\src\tests\main_test.py")
+print(r"flake8 --ignore=W,E,R,F .\src\tests\main_test.py")
