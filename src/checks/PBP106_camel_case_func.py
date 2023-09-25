@@ -20,10 +20,11 @@ class CamelCaseFuncNotAllowed:
 
     @classmethod
     def check(cls, node: ast.For, errors: list[Flake8ASTErrorInfo]) -> None:
+        # node.name: str
         if (
             not node.name.islower()
-            and node.name.lower().startwith("test")
-            and node.name.lower().startwith("assert")
+            and node.name.lower().startswith("test")
+            and node.name.lower().startswith("assert")
             and node.name.startswith("setUp")
             and node.name.startswith("tearDown")
             and len(node.name) > 3
